@@ -2,7 +2,7 @@
   "name": "tile-game",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/smandoki/tile-game",
+  "homepage": "https://smandoki.github.io/tile-game",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
