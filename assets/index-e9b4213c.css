@@ -1,0 +1,1 @@
+.tile-container{display:grid;grid-template-columns:repeat(3,1fr);width:600px;height:600px;border-collapse:collapse;margin:20px;outline:1px solid black}.tile{border:1px solid black}.highlight{background-color:#7fffd4}*{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0}
