@@ -9,8 +9,6 @@ function App() {
     const y = Math.floor(index / 3);
     const x = index % 3;
 
-    console.log(x, y);
-
     nextTiles[index] = !nextTiles[index];
     if (x > 0) nextTiles[index - 1] = !nextTiles[index - 1];
     if (x < 2) nextTiles[index + 1] = !nextTiles[index + 1];
