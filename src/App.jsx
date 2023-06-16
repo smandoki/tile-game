@@ -5,43 +5,19 @@ function App() {
   const [tiles, setTiles] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   function updateTiles(index) {
-    setTiles((prevTiles) => {
-      let tiles = [...prevTiles];
-      const x = Math.floor(index / 3);
-      const y = index % 3;
+    let nextTiles = [...tiles];
+    const y = Math.floor(index / 3);
+    const x = index % 3;
 
-      tiles[index] = !tiles[index];
+    console.log(x, y);
 
-      if (coordIsValid(x - 1, y)) {
-        let index = coordTo1d(x - 1, y);
-        tiles[index] = !tiles[index];
-      }
+    nextTiles[index] = !nextTiles[index];
+    if (x > 0) nextTiles[index - 1] = !nextTiles[index - 1];
+    if (x < 2) nextTiles[index + 1] = !nextTiles[index + 1];
+    if (y > 0) nextTiles[index - 3] = !nextTiles[index - 3];
+    if (y < 2) nextTiles[index + 3] = !nextTiles[index + 3];
 
-      if (coordIsValid(x + 1, y)) {
-        let index = coordTo1d(x + 1, y);
-        tiles[index] = !tiles[index];
-      }
-
-      if (coordIsValid(x, y - 1)) {
-        let index = coordTo1d(x, y - 1);
-        tiles[index] = !tiles[index];
-      }
-
-      if (coordIsValid(x, y + 1)) {
-        let index = coordTo1d(x, y + 1);
-        tiles[index] = !tiles[index];
-      }
-
-      return tiles;
-    });
-  }
-
-  function coordTo1d(x, y) {
-    return x * 3 + y;
-  }
-
-  function coordIsValid(x, y) {
-    return x >= 0 && x < 3 && y >= 0 && y < 3;
+    setTiles(nextTiles);
   }
 
   return (
